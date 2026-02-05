@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chocolate Day 🍫</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ffe4ec,#ffd6e8,#fff0f5);
+text-align:center;
+overflow-x:hidden;
+}
+
+/* Heading */
+h1{
+margin-top:30px;
+font-size:48px;
+color:#ff3d7a;
+}
+
+.subtitle{
+font-size:22px;
+color:#666;
+margin-top:10px;
+}
+
+/* Chocolate Grid */
+#box{
+display:grid;
+grid-template-columns:repeat(3,170px);
+gap:40px;
+justify-content:center;
+margin-top:50px;
+}
+
+/* Chocolate Card */
+.choco{
+cursor:pointer;
+background:rgba(255,255,255,0.4);
+padding:22px;
+border-radius:28px;
+backdrop-filter:blur(15px);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+.choco:hover{
+transform:scale(1.08);
+}
+
+/* Wrapper */
+.wrapper{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(45deg,#ff8fb1,#ffb3c6);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:20px;
+font-weight:bold;
+color:white;
+transition:0.8s;
+z-index:2;
+border-radius:28px;
+}
+
+.unwrap{
+transform:translateY(-120%);
+}
+
+/* Chocolate Info */
+.chocoName{
+font-size:20px;
+color:#ff2e63;
+font-weight:bold;
+}
+
+.chocoEmoji{
+font-size:65px;
+margin-top:10px;
+}
+
+/* Message Card */
+#messageCard{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+opacity:0;
+pointer-events:none;
+transition:0.6s;
+}
+
+/* Love Letter Card */
+.card{
+background:rgba(255,255,255,0.5);
+backdrop-filter:blur(22px);
+padding:50px;
+border-radius:30px;
+width:80%;
+max-width:650px;
+box-shadow:0 0 40px rgba(255,105,180,0.25);
+}
+
+#chocoTitle{
+font-size:34px;
+color:#ff2e63;
+margin-bottom:20px;
+}
+
+#chocoMeaning{
+font-size:20px;
+color:#777;
+margin-bottom:18px;
+font-style:italic;
+}
+
+#chocoText{
+font-size:24px;
+line-height:1.8;
+color:#333;
+}
+
+/* Close Button */
+#closeBtn{
+margin-top:30px;
+padding:14px 30px;
+border:none;
+border-radius:18px;
+background:#ff4d88;
+color:white;
+cursor:pointer;
+font-size:18px;
+}
+
+/* Floating Love */
+.floatLove{
+position:fixed;
+bottom:-40px;
+font-size:24px;
+opacity:0.5;
+animation:floatUp 12s linear infinite;
+}
+
+@keyframes floatUp{
+from{transform:translateY(0);}
+to{transform:translateY(-110vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Happy Chocolate Day Kanishka 🍫💖</h1>
+<div class="subtitle">Every chocolate hides a feeling for you...</div>
+
+<div id="box">
+
+<!-- Chocolate Cards -->
+
+<div class="choco" onclick="unwrapChocolate(this,'kitkat')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">KitKat</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+<div class="choco" onclick="unwrapChocolate(this,'dairymilk')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">Dairy Milk</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+<div class="choco" onclick="unwrapChocolate(this,'perk')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">Perk</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+<div class="choco" onclick="unwrapChocolate(this,'chocopie')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">Choco Pie</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+<div class="choco" onclick="unwrapChocolate(this,'5star')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">5 Star</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+<div class="choco" onclick="unwrapChocolate(this,'fererro')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">Ferrero Rocher</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+<div class="choco" onclick="unwrapChocolate(this,'munch')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">Munch</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+<div class="choco" onclick="unwrapChocolate(this,'gems')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">Gems</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+<div class="choco" onclick="unwrapChocolate(this,'milkybar')">
+<div class="wrapper">Unwrap 💝</div>
+<div class="chocoName">Milkybar</div>
+<div class="chocoEmoji">🍫</div>
+</div>
+
+</div>
+
+<!-- Message Popup -->
+<div id="messageCard">
+<div class="card">
+
+<div id="chocoTitle"></div>
+<div id="chocoMeaning"></div>
+<div id="chocoText"></div>
+
+<button id="closeBtn" onclick="closeMsg()">Close 💝</button>
+
+</div>
+</div>
+
+<audio id="music" autoplay loop>
+<source src="chocolate-music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* Music Backup */
+window.addEventListener("click",()=>{
+document.getElementById("music").play();
+},{once:true});
+
+/* Chocolate Messages */
+const messages={
+
+kitkat:{
+meaning:"Meaning: Spending peaceful breaks together ❤️",
+text:"People say have a break, have a kitkat....but but buttt I can say have a break, go to kk."
+},
+
+dairymilk:{
+meaning:"Meaning: Sweetness and comfort 💜",
+text:"Aaj kal toh mood me kuch meetha ho jaye nahi ata, kuch kisses hojae ata h."
+},
+
+perk:{
+meaning:"Meaning: Light happiness 🤍",
+text:"Life boring ho ya stressful… u is meri ~kabhi bhi, kahin bhi~ wali happiness ho."
+},
+
+chocopie:{
+meaning:"Meaning: Forever bond 💞",
+text:"Choco Pie is symbol for friendship, par main chahta hoon tum meri best friend bhi raho aur meri forever love story bhi."
+},
+
+"5star":{
+meaning:"Meaning: Comfort in simplicity ⭐",
+text:"Aapke sath to aise 5 star wala mood rehta but thoda alag...have kanishka do love."
+},
+
+fererro:{
+meaning:"Meaning: Precious & special ✨",
+text:"Ferrero Rocher luxury aur elegance ka symbol hai, bilkul tumhari tarah. Tum meri life ki sabse special feeling ho."
+},
+
+munch:{
+meaning:"Meaning: Cute strength 😋",
+text:"Jaise Munch ka har bite crunchy happiness deta hai… waise apki har baat dil garden garden kar deti hai."
+},
+
+gems:{
+meaning:"Meaning: Colours of life 🌈",
+text:"Meri life toh black & white chal rahi thi… u ne toh sab kuch Gems jaisa colorful bna diya.."
+},
+
+milkybar:{
+meaning:"Meaning: Pure love 🤍",
+text:"Ppl to milkybar ko milkiest kehte, but mere liyeee toh aap ho yummiest."
+}
+
+};
+
+/* Unwrap Chocolate */
+function unwrapChocolate(card,type){
+
+let wrap=card.querySelector(".wrapper");
+
+if(wrap){
+wrap.classList.add("unwrap");
+
+setTimeout(()=>{
+wrap.remove(); // stays unwrapped permanently
+openMsg(type);
+},700);
+}else{
+openMsg(type);
+}
+}
+
+/* Open Message */
+function openMsg(type){
+
+document.getElementById("chocoTitle").innerText=type.toUpperCase();
+document.getElementById("chocoMeaning").innerText=messages[type].meaning;
+document.getElementById("chocoText").innerText=messages[type].text;
+
+let card=document.getElementById("messageCard");
+card.style.opacity="1";
+card.style.pointerEvents="all";
+}
+
+/* Close */
+function closeMsg(){
+let card=document.getElementById("messageCard");
+card.style.opacity="0";
+card.style.pointerEvents="none";
+}
+
+/* Floating Love */
+setInterval(()=>{
+let items=["❤️","🌹","💖"];
+let love=document.createElement("div");
+love.className="floatLove";
+love.innerHTML=items[Math.floor(Math.random()*items.length)];
+love.style.left=Math.random()*100+"vw";
+document.body.appendChild(love);
+},2500);
+
+</script>
+
+</body>
+</html>
+
